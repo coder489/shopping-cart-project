@@ -25,3 +25,10 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+#
+#Chashier Input
+#
+
+cashier_input = input("Please input a product identifier: ")
+selected_product = [item for item in products if item["id"] == int(cashier_input)]
+
