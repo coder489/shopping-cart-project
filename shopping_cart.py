@@ -29,6 +29,11 @@ products = [
 #Chashier Input
 #
 
-cashier_input = input("Please input a product identifier: ")
-selected_product = [item for item in products if item["id"] == int(cashier_input)]
 
+while True:
+    cashier_input = input("Please input a product identifier: ")
+    if cashier_input == "DONE":
+        break
+    else:
+         selected_product = [item for item in products if item["id"] == int(cashier_input)]
+         purchased_product = selected_product[0]
