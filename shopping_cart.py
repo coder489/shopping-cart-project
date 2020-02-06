@@ -25,15 +25,34 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#
-#Chashier Input
-#
 
+###List of ID's###
+
+
+product_all_id = []
+
+x = 0
+
+while x < len(products):
+    dictionary = products[x]
+    product_all_id.append(dictionary["id"])
+    x = x+1
+
+
+###Chashier Input###
+
+
+purchased_product = []
+cashier_input = ""
 
 while True:
     cashier_input = input("Please input a product identifier: ")
     if cashier_input == "DONE":
         break
+    elif int(cashier_input) in product_all_id:
+        selected_product = [item for item in products if item["id"] == int(cashier_input)]
+        purchased_product.append(selected_product)
     else:
-         selected_product = [item for item in products if item["id"] == int(cashier_input)]
-         purchased_product = selected_product[0]
+        cashier_input = input("Product not found. Please input another product identifier: ")
+        if cashier_input == "DONE":
+            break
