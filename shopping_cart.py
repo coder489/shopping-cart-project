@@ -1,6 +1,5 @@
-# shopping_cart.py
-
-#from pprint import pprint
+import datetime
+import time
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -61,15 +60,32 @@ while True:
 ###Receipt###
 
 ##Header
-######################################
+
 #> ---------------------------------
 #> GREEN FOODS GROCERY
 #> WWW.GREEN-FOODS-GROCERY.COM
 #> ---------------------------------
-######################################
 
-print(---------------------------------)
-print()
-print("www.")
-print(---------------------------------)
 
+print("---------------------------------")
+print("The Zen of Python Grocery Store")
+print("www.zen-python-grocery.com")
+print("---------------------------------")
+
+
+##Date and Time
+
+#> ---------------------------------
+#> CHECKOUT AT: 2019-06-06 11:31 AM
+#> ---------------------------------
+
+
+
+t = time.localtime() #Code from https://www.programiz.com/python-programming/datetime/current-datetime
+current_time = time.strftime("%I:%M %p", t) # code from https://www.programiz.com/python-programming/datetime/current-datetime
+                                            #Time format was edited by me to make it more readable to the user
+
+
+print("---------------------------------")
+print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
+print("---------------------------------")
