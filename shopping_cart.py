@@ -50,7 +50,7 @@ while True:
         break
     elif int(cashier_input) in product_all_id:
         selected_product = [item for item in products if item["id"] == int(cashier_input)]
-        purchased_product.append(selected_product)
+        purchased_product.append(selected_product[0])
     else:
         cashier_input = input("Product not found. Please input another product identifier: ")
         if cashier_input == "DONE":
@@ -80,12 +80,22 @@ print("---------------------------------")
 #> ---------------------------------
 
 
-
 t = time.localtime() #Code from https://www.programiz.com/python-programming/datetime/current-datetime
 current_time = time.strftime("%I:%M %p", t) # code from https://www.programiz.com/python-programming/datetime/current-datetime
-                                            #Time format was edited by me to make it more readable to the user
-
+                                           #Time format was edited by me to make it more readable to the user
 
 print("---------------------------------")
 print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
 print("---------------------------------")
+
+
+##Products
+
+print("SELECTED PRODUCTS:")
+
+y=0
+
+while y < len(purchased_product):
+    dictionary = purchased_product[y]
+    print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
+    y = y + 1
