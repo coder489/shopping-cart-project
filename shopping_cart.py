@@ -26,7 +26,7 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
-###List of ID's###
+###Master List of ID's###
 
 
 product_all_id = []
@@ -56,3 +56,20 @@ while True:
         cashier_input = input("Product not found. Please input another product identifier: ")
         if cashier_input == "DONE":
             break
+
+
+###Receipt###
+
+##Header
+######################################
+#> ---------------------------------
+#> GREEN FOODS GROCERY
+#> WWW.GREEN-FOODS-GROCERY.COM
+#> ---------------------------------
+######################################
+
+print(---------------------------------)
+print()
+print("www.")
+print(---------------------------------)
+
