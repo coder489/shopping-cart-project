@@ -1,6 +1,16 @@
 import datetime
 import time
 
+def to_usd(my_price):
+    """
+    Converts a numeric value to usd-formatted string, for printing and display purposes.
+    Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
+    Param: my_price (int or float) like 4000.444444
+    Example: to_usd(4000.444444)
+    Returns: $4,000.44
+    """
+    return f"${my_price:,.2f}" #> $12,000.71
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -41,7 +51,7 @@ while x < len(products):
 ####Chashier Input####
 
 
-purchased_product = []
+purchased_products = []
 cashier_input = ""
 
 
@@ -50,12 +60,13 @@ while True:
     if cashier_input == "DONE":
         break
     elif int(cashier_input) in product_all_id:
-        selected_product = [item for item in products if item["id"] == int(cashier_input)]
-        purchased_product.append(selected_product[0])
+        matching_products = [item for item in products if item["id"] == int(cashier_input)]
+        purchased_products.append(matching_products[0])
     else:
-        cashier_input = input("Product not found. Please input another product identifier: ")
-        if cashier_input == "DONE":
-            break
+        print("Product not found.")
+        #cashier_input = input("Product not found. Please input another product identifier: ")
+        #if cashier_input == "DONE":
+        #    break
 
 
 ####Receipt####
@@ -94,14 +105,18 @@ print("---------------------------------")
 
 print("SELECTED PRODUCTS:")
 
-y=0
+#y=0
+#
+#
+#while y < len(purchased_products):
+#    dictionary = purchased_products[y]
+#    print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
+#    y = y + 1
 
-
-while y < len(purchased_product):
-    dictionary = purchased_product[y]
-    print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
-    y = y + 1
-
+for each_product in purchased_products:
+    #print("..." + str(each_product["name"]) + " ($" + str(each_product["price"]) + ")" )
+    print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
+exit()
 
 ##Subtotal, Tax, and Total##
 
@@ -114,8 +129,11 @@ while y < len(purchased_product):
 
 ###Subtotal###
 
-subtotal = 5
+subtotal = 0 #need to figure out the subtotal
 
+while subtotal < len(purchased_product):
+    dictionary = purchased_product[subtotal]
+    subtotal = subtotal + purchased_product["price"]
 price_usd_subtotal = "${0:.2f}".format(subtotal)
 
 
