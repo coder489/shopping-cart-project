@@ -107,16 +107,16 @@ print("SELECTED PRODUCTS:")
 
 #y=0
 #
-#
 #while y < len(purchased_products):
 #    dictionary = purchased_products[y]
 #    print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
 #    y = y + 1
 
+subtotal = 0
+
 for each_product in purchased_products:
-    #print("..." + str(each_product["name"]) + " ($" + str(each_product["price"]) + ")" )
     print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
-exit()
+    subtotal = subtotal + each_product["price"]
 
 ##Subtotal, Tax, and Total##
 
@@ -127,15 +127,6 @@ exit()
 #> ---------------------------------
 
 
-###Subtotal###
-
-subtotal = 0 #need to figure out the subtotal
-
-while subtotal < len(purchased_product):
-    dictionary = purchased_product[subtotal]
-    subtotal = subtotal + purchased_product["price"]
-price_usd_subtotal = "${0:.2f}".format(subtotal)
-
 
 ###Tax###
 
@@ -143,16 +134,15 @@ def sales_tax(subtotal):
     return subtotal*.06
 
 tax = sales_tax(subtotal)
-price_usd_tax = "${0:.2f}".format(tax)
 
 
 ###Total###
 
 sum =  subtotal + tax
-price_usd_sum = "${0:.2f}".format(sum)
+
 
 print("---------------------------------")
-print("SUBTOTAL: " + str(price_usd_subtotal))
-print("TAX: " + str(price_usd_tax))
-print("TOTAL: " + str(price_usd_sum))
+print("SUBTOTAL: " + to_usd(subtotal))
+print("TAX: " + to_usd(tax))
+print("TOTAL: " + to_usd(sum))
 print("---------------------------------")
