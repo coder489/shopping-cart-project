@@ -64,9 +64,6 @@ while True:
         purchased_products.append(matching_products[0])
     else:
         print("Product not found.")
-        #cashier_input = input("Product not found. Please input another product identifier: ")
-        #if cashier_input == "DONE":
-        #    break
 
 
 ####Receipt####
@@ -125,7 +122,6 @@ for each_product in purchased_products:
 #> TAX: $5.35
 #> TOTAL: $66.59
 #> ---------------------------------
-
 
 
 ###Tax###
