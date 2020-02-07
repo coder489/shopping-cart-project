@@ -44,6 +44,7 @@ while x < len(products):
 purchased_product = []
 cashier_input = ""
 
+
 while True:
     cashier_input = input("Please input a product identifier: ")
     if cashier_input == "DONE":
@@ -95,7 +96,31 @@ print("SELECTED PRODUCTS:")
 
 y=0
 
+
 while y < len(purchased_product):
     dictionary = purchased_product[y]
     print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
     y = y + 1
+
+
+##Subtotal, Tax, and Total
+
+#> ---------------------------------
+#> SUBTOTAL: $61.24
+#> TAX: $5.35
+#> TOTAL: $66.59
+#> ---------------------------------
+
+
+###Tax
+
+def sales_tax(subtotal):
+        return subtotal*.06
+
+tax = sales_tax(subtotal)
+
+print("---------------------------------")
+print("SUBTOTAL: " + str(subtotal))
+print("TAX: " + str(tax))
+print("TOTAL: ")
+print("---------------------------------")
