@@ -111,6 +111,10 @@ while y < len(purchased_product):
 #> TOTAL: $66.59
 #> ---------------------------------
 
+###Subtotal
+
+subtotal = 5
+print(subtotal)
 
 ###Tax
 
@@ -119,8 +123,12 @@ def sales_tax(subtotal):
 
 tax = sales_tax(subtotal)
 
+###Total
+
+sum =  subtotal + tax
+
 print("---------------------------------")
 print("SUBTOTAL: " + str(subtotal))
 print("TAX: " + str(tax))
-print("TOTAL: ")
+print("TOTAL: " + str(sum))
 print("---------------------------------")
