@@ -35,7 +35,7 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
-####Master List of ID's####
+#### Master List of ID's ####
 
 
 product_all_id = []
@@ -48,7 +48,7 @@ while x < len(products):
     x = x+1
 
 
-####Chashier Input####
+#### Chashier Input ####
 
 
 purchased_products = []
@@ -66,9 +66,9 @@ while True:
         print("Product not found.")
 
 
-####Receipt####
+#### Receipt ####
 
-##Header##
+## Header ##
 
 #> ---------------------------------
 #> GREEN FOODS GROCERY
@@ -77,12 +77,12 @@ while True:
 
 
 print("---------------------------------")
-print("The Zen of Python Grocery Store")
-print("www.zen-python-grocery.com")
+print("Basque Country Groceries")
+print("www.basque-country-groceries.com")
 print("---------------------------------")
 
 
-##Date and Time##
+## Date and Time ##
 
 #> ---------------------------------
 #> CHECKOUT AT: 2019-06-06 11:31 AM
@@ -98,7 +98,7 @@ print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
 print("---------------------------------")
 
 
-##Products##
+## Products ##
 
 print("SELECTED PRODUCTS:")
 
@@ -115,7 +115,7 @@ for each_product in purchased_products:
     print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
     subtotal = subtotal + each_product["price"]
 
-##Subtotal, Tax, and Total##
+## Print Subtotal, Tax, and Total ##
 
 #> ---------------------------------
 #> SUBTOTAL: $61.24
@@ -124,7 +124,7 @@ for each_product in purchased_products:
 #> ---------------------------------
 
 
-###Tax###
+### Tax ###
 
 def sales_tax(subtotal):
     return subtotal*.06
@@ -132,7 +132,7 @@ def sales_tax(subtotal):
 tax = sales_tax(subtotal)
 
 
-###Total###
+### Total ###
 
 sum =  subtotal + tax
 
