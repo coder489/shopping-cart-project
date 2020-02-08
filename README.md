@@ -1,21 +1,34 @@
-It is important to divide the project into two separate parts:
-    1. The input section denoted by "Chashier Input"
-    2. The reciept output section denoted by "Receipt"
 
-Before you begin the two parts, it is beneficial to start by creating a list of all of the product ID's that you can search through to determine if a product ID exists
+Description: A program that can be used by a cashier at a grocery store to create a receipt consisting of products identified by inputed ID numbers
 
-Part 1 Tips and Tricks
-    1. Start by utilizing the input function to collect cashier inputs    (note that the input is a str variable eventhough it is a number)
-    2. Create an empty list to store the cashier inputs so that they can   be called upon during a later time
-    3. Use a while loop along with nested if and elif functions to loop    through the product dictionaries and identify the dictionary with      the ID corresponding to the cashier input. Store this ID in the        empty list mentioned in step 2
-    4. Don't forget to use a break function to signify that the loop       should end
+  
+## Instalation ##
 
-Part 2 Tips and Tricks
-Hint--Try dividing the receipt into 4 different parts: the header, the date and time, the selected products, and the final amounts
-    1. Print the features of the header
-    2. Utilize python functions to input the current date and time
-    3. Use a while loop and defined variable to loop through the        
-    dictionaries and print the product name and price with ID's that correspond to the cashier inputs
-    4. Use a loop function to find the subtotal, a custom function to calculate sales tax, and the python sum capability to calculate the total
+Create a new repository and enter its respository name, such as shopping-cart-project
 
-    Put in command to run the program
+After creating the remote repo, use GitHub Desktop software or the command-line to download or "clone" it onto your computer. Choose a familiar download location like the Desktop.
+
+Then navigate there from the command line (subsequent commands assume you are running them from the local repository's root directory):
+
+--
+cd ~/Desktop/shopping-cart-project
+```
+
+Use Anaconda to create and activate a new virtual environment, perhaps called "shopping-env":
+
+```
+conda create -n shopping-env python=3.7 # (first time only)
+conda activate shopping-env
+```
+
+## Setup ##
+
+In in the root directory of your local repository, create a new file that ends with .py, such as shopping_cart.py
+
+## Usage ##
+
+Run the game script:
+
+```py
+python shopping_cart.py
+```
