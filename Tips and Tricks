@@ -19,8 +19,8 @@ Part 1 Tips and Tricks
     should end
 
 Part 2 Tips and Tricks
-Hint--Try dividing the receipt into 4 different parts: the header, the 
-date and time, the selected products, and the final amounts
+Hint--Try dividing the receipt into 5 different parts: the header, the 
+date and time, the selected products, the final amounts, and the final thanks
     1. Print the features of the header
     2. Utilize python functions to input the current date and time
     3. Use a while loop and defined variable to loop through the        
@@ -29,3 +29,4 @@ date and time, the selected products, and the final amounts
     4. Use a loop function to find the subtotal, a custom function to 
     calculate sales tax, and the python sum capability to calculate the 
     total
+    5. Print final thanks message

@@ -35,7 +35,7 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
-#### Master List of ID's ####
+#### MASTER LIST OF ID'S ####
 
 
 product_all_id = []
@@ -48,7 +48,7 @@ while x < len(products):
     x = x+1
 
 
-#### Chashier Input ####
+#### CASHIER INPUT ####
 
 
 purchased_products = []
@@ -66,10 +66,11 @@ while True:
         print("Product not found.")
 
 
-#### Receipt ####
+#### RECEIPT ####
 
-## Header ##
+## HEADER ##
 
+#Desired Output
 #> ---------------------------------
 #> GREEN FOODS GROCERY
 #> WWW.GREEN-FOODS-GROCERY.COM
@@ -82,8 +83,9 @@ print("www.basque-country-groceries.com")
 print("---------------------------------")
 
 
-## Date and Time ##
+## DATE AND TIME ##
 
+#Desired Output:
 #> ---------------------------------
 #> CHECKOUT AT: 2019-06-06 11:31 AM
 #> ---------------------------------
@@ -98,7 +100,7 @@ print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
 print("---------------------------------")
 
 
-## Products ##
+## PRODUCTS ##
 
 print("SELECTED PRODUCTS:")
 
@@ -115,8 +117,10 @@ for each_product in purchased_products:
     print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
     subtotal = subtotal + each_product["price"]
 
-## Print Subtotal, Tax, and Total ##
 
+## PRINT, SUBTOTAL, TAX, AND TOTAL ##
+
+#Desired Output:
 #> ---------------------------------
 #> SUBTOTAL: $61.24
 #> TAX: $5.35
@@ -124,7 +128,7 @@ for each_product in purchased_products:
 #> ---------------------------------
 
 
-### Tax ###
+### TAX ###
 
 def sales_tax(subtotal):
     return subtotal*.06
@@ -132,7 +136,7 @@ def sales_tax(subtotal):
 tax = sales_tax(subtotal)
 
 
-### Total ###
+### TOTAL ###
 
 sum =  subtotal + tax
 
@@ -141,4 +145,14 @@ print("---------------------------------")
 print("SUBTOTAL: " + to_usd(subtotal))
 print("TAX: " + to_usd(tax))
 print("TOTAL: " + to_usd(sum))
+print("---------------------------------")
+
+
+## FINAL THANKS ##
+
+#Desired Output:
+#> THANKS, SEE YOU AGAIN SOON!
+#> ---------------------------------
+
+print("ESKERRIK ASKO! (THANK YOU!) SEE YOU AGAIN SOON!")
 print("---------------------------------")
