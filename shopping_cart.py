@@ -131,7 +131,7 @@ for each_product in purchased_products:
 ### TAX ###
 
 def sales_tax(subtotal):
-    return subtotal*.06
+    return subtotal*.0875
 
 tax = sales_tax(subtotal)
 
