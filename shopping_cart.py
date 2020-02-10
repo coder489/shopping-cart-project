@@ -1,6 +1,14 @@
 import datetime
 import time
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv() #> loads contents of the .env file into the script's environment
+
+tax_rate = float(os.environ.get("TAX_RATE"))
+
+
 def to_usd(my_price):
     """
     Converts a numeric value to usd-formatted string, for printing and display purposes.
@@ -10,6 +18,8 @@ def to_usd(my_price):
     Returns: $4,000.44
     """
     return f"${my_price:,.2f}" #> $12,000.71
+
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -131,7 +141,7 @@ for each_product in purchased_products:
 ### TAX ###
 
 def sales_tax(subtotal):
-    return subtotal*.0875
+    return subtotal*tax_rate
 
 tax = sales_tax(subtotal)
 
