@@ -4,8 +4,7 @@ import time
 from dotenv import load_dotenv
 import os
 
-load_dotenv() #> loads contents of the .env file into the script's environment
-
+load_dotenv() 
 
 
 products = [
@@ -34,6 +33,14 @@ products = [
 
 tax_rate = float(os.environ.get("TAX_RATE"))
 
+def current_time():
+    """
+        Source: https://www.programiz.com/python-programming/datetime/current-datetime
+        Time format was edited slightly
+    """
+    t = time.localtime()                
+    time_now = time.strftime("%I:%M %p", t) 
+    return time_now
 
 def to_usd(my_price):
     """
@@ -42,13 +49,9 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" 
 
 def tax(pre_tax_amount):
-    post_tax_amount = pre_tax_amount * tax rate
+    post_tax_amount = pre_tax_amount * tax_rate
     return post_tax_amount
 
-def current_time():
-    t = time.localtime()                
-    time = time.strftime("%I:%M %p", t) #Code from https://www.programiz.com/python-programming/datetime/current-datetime
-    return time                         #Time format was edited by me to make it more readable to the user
 
 
 product_all_id = []
@@ -89,10 +92,8 @@ print("www.basque-country-groceries.com")
 print("---------------------------------")
 
 
-
-
 print("---------------------------------")
-print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
+print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time()}")
 print("---------------------------------")
 
 
@@ -114,25 +115,12 @@ for each_product in purchased_products:
     subtotal = subtotal + each_product["price"]
 
 
-## PRINT, SUBTOTAL, TAX, AND TOTAL ##
-
-#Desired Output:
-#> ---------------------------------
-#> SUBTOTAL: $61.24
-#> TAX: $5.35
-#> TOTAL: $66.59
-#> ---------------------------------
-
-
-### TAX ###
 
 def sales_tax(subtotal):
     return subtotal*tax_rate
 
 tax = sales_tax(subtotal)
 
-
-### TOTAL ###
 
 sum =  subtotal + tax
 
@@ -145,10 +133,6 @@ print("---------------------------------")
 
 
 ## FINAL THANKS ##
-
-#Desired Output:
-#> THANKS, SEE YOU AGAIN SOON!
-#> ---------------------------------
 
 print("ESKERRIK ASKO! (THANK YOU!) SEE YOU AGAIN SOON!")
 print("---------------------------------")
