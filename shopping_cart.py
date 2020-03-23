@@ -6,19 +6,6 @@ import os
 
 load_dotenv() #> loads contents of the .env file into the script's environment
 
-tax_rate = float(os.environ.get("TAX_RATE"))
-
-
-def to_usd(my_price):
-    """
-    Converts a numeric value to usd-formatted string, for printing and display purposes.
-    Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
-    Param: my_price (int or float) like 4000.444444
-    Example: to_usd(4000.444444)
-    Returns: $4,000.44
-    """
-    return f"${my_price:,.2f}" #> $12,000.71
-
 
 
 products = [
@@ -45,7 +32,23 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
-#### MASTER LIST OF ID'S ####
+tax_rate = float(os.environ.get("TAX_RATE"))
+
+
+def to_usd(my_price):
+    """
+        Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
+    """
+    return f"${my_price:,.2f}" 
+
+def tax(pre_tax_amount):
+    post_tax_amount = pre_tax_amount * tax rate
+    return post_tax_amount
+
+def current_time():
+    t = time.localtime()                
+    time = time.strftime("%I:%M %p", t) #Code from https://www.programiz.com/python-programming/datetime/current-datetime
+    return time                         #Time format was edited by me to make it more readable to the user
 
 
 product_all_id = []
@@ -80,30 +83,13 @@ while True:
 
 ## HEADER ##
 
-#Desired Output
-#> ---------------------------------
-#> GREEN FOODS GROCERY
-#> WWW.GREEN-FOODS-GROCERY.COM
-#> ---------------------------------
-
-
 print("---------------------------------")
 print("Basque Country Groceries")
 print("www.basque-country-groceries.com")
 print("---------------------------------")
 
 
-## DATE AND TIME ##
 
-#Desired Output:
-#> ---------------------------------
-#> CHECKOUT AT: 2019-06-06 11:31 AM
-#> ---------------------------------
-
-
-t = time.localtime() #Code from https://www.programiz.com/python-programming/datetime/current-datetime
-current_time = time.strftime("%I:%M %p", t) # code from https://www.programiz.com/python-programming/datetime/current-datetime
-                                           #Time format was edited by me to make it more readable to the user
 
 print("---------------------------------")
 print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
@@ -166,3 +152,6 @@ print("---------------------------------")
 
 print("ESKERRIK ASKO! (THANK YOU!) SEE YOU AGAIN SOON!")
 print("---------------------------------")
+
+
+

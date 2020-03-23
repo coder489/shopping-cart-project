@@ -33,11 +33,5 @@ In in the root directory of your local repository, create a new file that ends w
 pip install python-dotenv
 ```
 
-## Usage
 
-To run the game script:
-
-```sh
-python shopping_cart.py
-```
 
