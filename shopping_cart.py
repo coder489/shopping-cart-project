@@ -84,7 +84,7 @@ def line():
     """
     print("---------------------------------")
 
-## CASHIER INPUTS (collecting the products)
+### CASHIER INPUTS (collecting the products)
 
 product_all_id = []
 
@@ -105,7 +105,7 @@ while True:
         print("Product not found.")
 
 
-## RECEIPT OUTPUT
+### RECEIPT OUTPUT
 
 line()
 print("Basque Country Groceries")
