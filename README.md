@@ -23,15 +23,34 @@ conda create -n shopping-env python=3.7 # (first time only)
 conda activate shopping-env
 ```
 
-## Setup
-
-In in the root directory of your local repository, create a new file that ends with .py, such as shopping_cart.py
-
 ## Packages to Install
 
 ```sh
 pip install python-dotenv
 ```
+
+## Usage
+
+To run the script, use the following command:
+
+```
+python app/shopping_cart.py
+```
+
+## Testing
+
+From inside the virtual environment that was created, use the following code to install testing capabilities
+
+```
+pip install pytest
+```
+
+Use the following code to run the tests:
+
+```
+pytest
+```
+
 
 
 
