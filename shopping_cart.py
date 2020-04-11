@@ -4,7 +4,9 @@ import time
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv() #> loads contents of the .env file into the script's environment
+
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -29,73 +31,45 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-purchased_products = []
+
 tax_rate = float(os.environ.get("TAX_RATE"))
 
-def current_time():
-    """
-        Used to get the current time, format it, and then return it.
-        Source: https://www.programiz.com/python-programming/datetime/current-datetime
-    """
-    t = time.localtime()                
-    time_now = time.strftime("%I:%M %p", t) 
-    return time_now
-
-def selected_products():
-    """
-        Used to compile and print all of the selected products.
-    """
-    for each_product in purchased_products:
-        print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
-
-def subtotal():
-    """
-        Used to calculate the subtotal of the products that are purchased.
-    """
-    subtotal = 0
-    for each_product in purchased_products:
-        subtotal = subtotal + float(each_product["price"])
-    return subtotal
-
-def sales_tax(total):
-    """
-        Used to find the amount of tax on a given total.
-    """
-    taxes = total * tax_rate
-    return taxes
-
-def total(cost):
-    """
-        Used to calculate the total amount owed by adding the total and the tax on the total.
-    """
-    total_cost = cost + sales_tax(cost)
-    return total_cost
 
 def to_usd(my_price):
     """
-        Used to format the price in traditional US format. 
         Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
     """
     return f"${my_price:,.2f}" 
 
-def line():
-    """
-    Used to print the line for the receipt.
-    """
-    print("---------------------------------")
+def tax(pre_tax_amount):
+    post_tax_amount = pre_tax_amount * tax rate
+    return post_tax_amount
 
-## CASHIER INPUTS (collecting the products)
+def current_time():
+    t = time.localtime()                
+    time = time.strftime("%I:%M %p", t) #Code from https://www.programiz.com/python-programming/datetime/current-datetime
+    return time                         #Time format was edited by me to make it more readable to the user
+
 
 product_all_id = []
 
 x = 0
+
 while x < len(products):
     dictionary = products[x]
     product_all_id.append(dictionary["id"])
     x = x+1
 
+
+#### CASHIER INPUT ####
+
+
+purchased_products = []
+cashier_input = ""
+
+
 while True:
-    cashier_input = input("Please input a product identifier (type DONE when complete): ")
+    cashier_input = input("Please input a product identifier: ")
     if cashier_input == "DONE":
         break
     elif int(cashier_input) in product_all_id:
@@ -105,23 +79,79 @@ while True:
         print("Product not found.")
 
 
-## RECEIPT OUTPUT
+#### RECEIPT ####
 
-line()
+## HEADER ##
+
+print("---------------------------------")
 print("Basque Country Groceries")
 print("www.basque-country-groceries.com")
-line()
-print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time()}")
-line()
+print("---------------------------------")
+
+
+
+
+print("---------------------------------")
+print(f"CHECKOUT AT: {str(datetime.date.today())} {current_time}")
+print("---------------------------------")
+
+
+## PRODUCTS ##
+
 print("SELECTED PRODUCTS:")
-selected_products()
-line()
-print(f"SUBTOTAL: {to_usd(subtotal())}")
-print(f"TAX: {to_usd(sales_tax(subtotal()))}")
-print(f"TOTAL: {to_usd(total(subtotal()))}")
-line()
+
+#y=0
+#
+#while y < len(purchased_products):
+#    dictionary = purchased_products[y]
+#    print("..." + str(dictionary["name"]) + " ($" + str(dictionary["price"]) + ")" )
+#    y = y + 1
+
+subtotal = 0
+
+for each_product in purchased_products:
+    print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
+    subtotal = subtotal + each_product["price"]
+
+
+## PRINT, SUBTOTAL, TAX, AND TOTAL ##
+
+#Desired Output:
+#> ---------------------------------
+#> SUBTOTAL: $61.24
+#> TAX: $5.35
+#> TOTAL: $66.59
+#> ---------------------------------
+
+
+### TAX ###
+
+def sales_tax(subtotal):
+    return subtotal*tax_rate
+
+tax = sales_tax(subtotal)
+
+
+### TOTAL ###
+
+sum =  subtotal + tax
+
+
+print("---------------------------------")
+print("SUBTOTAL: " + to_usd(subtotal))
+print("TAX: " + to_usd(tax))
+print("TOTAL: " + to_usd(sum))
+print("---------------------------------")
+
+
+## FINAL THANKS ##
+
+#Desired Output:
+#> THANKS, SEE YOU AGAIN SOON!
+#> ---------------------------------
+
 print("ESKERRIK ASKO! (THANK YOU!) SEE YOU AGAIN SOON!")
-line()
+print("---------------------------------")
 
 
 
