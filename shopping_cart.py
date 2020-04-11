@@ -50,14 +50,14 @@ def to_usd(my_price):
 
 def selected_products():
     """
-        Used to compile and print all of the selected products
+        Used to compile and print all of the selected products.
     """
     for each_product in purchased_products:
         print("..." + str(each_product["name"]) + " " + to_usd(each_product["price"]))
 
 def subtotal():
     """
-        Used to calculate the subtotal of the products that are purchased
+        Used to calculate the subtotal of the products that are purchased.
     """
     subtotal = 0
     for each_product in purchased_products:
@@ -66,9 +66,17 @@ def subtotal():
 
 def sales_tax(total):
     """
-        Used to find the amount of tax.
+        Used to find the amount of tax on a given total.
     """
-    return total*tax_rate
+    taxes = total * tax_rate
+    return taxes
+
+def total(cost):
+    """
+        Used to calculate the total amount owed by adding the total and the tax on the total.
+    """
+    total_cost = cost + sales_tax(cost)
+    return total_cost
 
 def line():
     """
@@ -76,6 +84,7 @@ def line():
     """
     print("---------------------------------")
 
+## CASHIER INPUTS (collecting the products)
 
 product_all_id = []
 
@@ -107,17 +116,9 @@ line()
 print("SELECTED PRODUCTS:")
 selected_products()
 line()
-
-tax = sales_tax(subtotal())
-
-sum =  subtotal() + tax
-
-
-# Print Subtotals
-
-print("SUBTOTAL: " + to_usd(subtotal()))
-print("TAX: " + to_usd(tax))
-print("TOTAL: " + to_usd(sum))
+print(f"SUBTOTAL: {to_usd(subtotal())}")
+print(f"TAX: {to_usd(sales_tax(subtotal()))}")
+print(f"TOTAL: {to_usd(total(subtotal()))}")
 line()
 print("ESKERRIK ASKO! (THANK YOU!) SEE YOU AGAIN SOON!")
 line()
