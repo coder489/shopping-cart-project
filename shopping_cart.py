@@ -41,13 +41,6 @@ def current_time():
     time_now = time.strftime("%I:%M %p", t) 
     return time_now
 
-def to_usd(my_price):
-    """
-        Used to format the price in traditional US format. 
-        Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
-    """
-    return f"${my_price:,.2f}" 
-
 def selected_products():
     """
         Used to compile and print all of the selected products.
@@ -77,6 +70,13 @@ def total(cost):
     """
     total_cost = cost + sales_tax(cost)
     return total_cost
+
+def to_usd(my_price):
+    """
+        Used to format the price in traditional US format. 
+        Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
+    """
+    return f"${my_price:,.2f}" 
 
 def line():
     """
